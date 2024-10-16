@@ -16,6 +16,7 @@ jobs:
               uses: actions/setup-node@v4
             - name: Build the Website
               run: |
+                yarn install
                 yarn build
                 ls -l
                 if test -f "build/index.html"; then
