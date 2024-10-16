@@ -9,11 +9,13 @@ on:
 
 jobs:
     build_website:
-        runs-on: node:20.18.0-alpine
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - name: Install Yarn and Build the Website
+            - name: Use Node.js
+              uses: actions/setup-node@v4
+            - name: Install Yarn dependencies & Build the Website
               run: |
-                yarn install 
+                yarn install
                 yarn build
             
