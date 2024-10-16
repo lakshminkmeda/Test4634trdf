@@ -14,12 +14,13 @@ jobs:
             - uses: actions/checkout@v4
             - name: Use Node.js
               uses: actions/setup-node@v4
-            - name: Install Yarn dependencies & Build the Website
+            - name: Build the Website
               run: |
-                yarn install
                 yarn build
-
-                ls
-                cd build
-                ls
-            
+                ls -l
+                if test -f "build/index.html"; then
+                    echo "Test Passed"
+                else
+                    echo "Test Failed"
+                fi
+                
