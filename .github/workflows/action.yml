@@ -18,4 +18,8 @@ jobs:
               run: |
                 yarn install
                 yarn build
+
+                ls
+                cd build
+                ls
             
