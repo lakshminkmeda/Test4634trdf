@@ -1,0 +1,19 @@
+name: Testing a Website
+
+on: 
+    push:
+        branches: ["main"]
+    pull_request:
+        branches: ["main"]
+    workflow_dispatch:
+
+jobs:
+    build_website:
+        runs-on: node:20.18.0-alpine
+        steps:
+            - uses: actions/checkout@v4
+            - name: Install Yarn and Build the Website
+              run: |
+                yarn install 
+                yarn build
+            
