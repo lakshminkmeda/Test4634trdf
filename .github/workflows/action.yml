@@ -66,7 +66,8 @@ jobs:
                 echo "You're in AWS Cli mode"
                 aws --version
                 echo "Hello S3" > test.txt
-                aws s3 cp test.txt s3:::temp-terraform-s3bucket/test.txt
+                ls -l
+                aws s3 cp test.txt s3://temp-terraform-s3bucket/test.txt
             # env: 
             #   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
             #   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
