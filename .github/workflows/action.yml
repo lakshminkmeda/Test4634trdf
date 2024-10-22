@@ -20,6 +20,9 @@ jobs:
                 yarn build
                 yarn lint
                 ls -l
+                echo "Checking inside build folder"
+                cd build/
+                ls -l
             - uses: actions/upload-artifact@v4
               with:
                 name: my-artifact
