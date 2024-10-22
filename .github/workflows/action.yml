@@ -34,12 +34,14 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - name: Download Artifacts
+              uses: actions/download-artifact@v4    
               with:
                 path: build
-              uses: actions/download-artifact@v4    
+            - name: Display structure of downloaded files
+              run: ls -R build
             - name: Run website Test
               run: |
-                ls -l 
+                ls -R 
                 if test -f "index.html"; then
                     echo "Test Passed"
                 else
