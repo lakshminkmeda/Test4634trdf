@@ -34,7 +34,7 @@ jobs:
               uses: actions/download-artifact@v4    
             - name: Run website Test
               run: |
-                if test -f "build/index.html"; then
+                if test -f "index.html"; then
                     echo "Test Passed"
                 else
                     echo "Test Failed"
@@ -59,7 +59,7 @@ jobs:
                 aws --version
                 echo "Hello S3" > test.txt
                 ls -l
-                aws s3 cp build s3://temp-terraform-s3bucket/
+                aws s3 cp *.* s3://temp-terraform-s3bucket/web/
             env: 
                AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
                AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
