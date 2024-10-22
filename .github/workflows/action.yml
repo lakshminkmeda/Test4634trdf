@@ -59,7 +59,7 @@ jobs:
                 aws --version
                 echo "Hello S3" > test.txt
                 ls -l
-                aws s3 sync / s3://temp-terraform-s3bucket/web/
+                aws s3 sync build/ s3://temp-terraform-s3bucket/web/
             env: 
                AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
                AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
