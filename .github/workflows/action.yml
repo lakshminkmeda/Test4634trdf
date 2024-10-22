@@ -26,7 +26,7 @@ jobs:
             - uses: actions/upload-artifact@v4
               with:
                 name: my-artifact
-                path: /build
+                path: build/
                 
     test_website:
         runs-on: ubuntu-latest
@@ -37,7 +37,7 @@ jobs:
               uses: actions/download-artifact@v4    
             - name: Run website Test
               run: |
-                if test -f "index.html"; then
+                if test -f "build/index.html"; then
                     echo "Test Passed"
                 else
                     echo "Test Failed"
