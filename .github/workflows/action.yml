@@ -39,12 +39,18 @@ jobs:
                   path: .  
             - name: Run website Test
               run: |
+                ls -l 
                 if test -f "index.html"; then
                     echo "Test Passed"
                 else
                     echo "Test Failed"
                 fi
                 if test -f "build/index.html"; then
+                    echo "Test Passed"
+                else
+                    echo "Test Failed"
+                fi
+                if test -f "my-artifact/index.html"; then
                     echo "Test Passed"
                 else
                     echo "Test Failed"
