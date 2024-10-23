@@ -78,6 +78,7 @@ jobs:
 
           - name: Test for working website on Staging URL
             run: |
+                echo ${{ vars.WEB_URL }}
                 curl ${{ vars.WEB_URL }} | grep "React App"
 
     deploy_to_production:
@@ -105,4 +106,5 @@ jobs:
                 AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           - name: Test for working website on Production URL
             run: |
+                echo ${{ vars.WEB_URL }}
                 curl ${{ vars.WEB_URL }} | grep "React App"
