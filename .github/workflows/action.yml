@@ -48,7 +48,6 @@ jobs:
                 fi
 
                 yarn global add serve
-                apk add curl
                 serve -s build &
                 sleep 10
 
