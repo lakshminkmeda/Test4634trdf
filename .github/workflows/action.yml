@@ -50,7 +50,7 @@ jobs:
                 yarn global add serve
                 serve -s build &
                 sleep 10
-
+                curl http://localhost:3000 | grep "React App"
 
     # deploy-to-s3:
     #     runs-on: ubuntu-latest
