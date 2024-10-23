@@ -66,9 +66,6 @@ jobs:
             run: |
                 python -m pip install --upgrade pip
                 pip install awscli
-          - name: Test for working website on Staging URL
-            run: |
-                curl $WEB_URL | grep "React App"
           - name: Run AWS CLI Commands
             run: |
                 echo "You're in AWS Cli mode"
@@ -78,6 +75,10 @@ jobs:
             env: 
                 AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
                 AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+          - name: Test for working website on Staging URL
+            run: |
+                curl $WEB_URL | grep "React App"
 
     deploy_to_production:
         runs-on: ubuntu-latest
@@ -93,9 +94,6 @@ jobs:
             run: |
                 python -m pip install --upgrade pip
                 pip install awscli
-          - name: Test for working website on Production URL
-            run: |
-                curl $WEB_URL | grep "React App"
           - name: Run AWS CLI Commands
             run: |
                 echo "You're in AWS Cli mode"
@@ -105,3 +103,6 @@ jobs:
             env: 
                 AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
                 AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          - name: Test for working website on Production URL
+            run: |
+                curl $WEB_URL | grep "React App"
