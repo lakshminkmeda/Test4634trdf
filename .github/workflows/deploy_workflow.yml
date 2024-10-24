@@ -39,4 +39,4 @@ jobs:
                 echo ${{github.run_id}}
                 echo ${{ inputs.WEB_URL }}
                 echo ${{ inputs.WEB_URL }}/index.html
-                curl ${{ inputs.WEB_URL }}/version.html | grep "React App"      
+                curl ${{ inputs.WEB_URL }}/version.html | grep "${{github.run_id}}"      
