@@ -12,7 +12,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - name: Find the Run_ID
+            - name: Find the Run_ID ver 2
               run: |
                 echo "${{github.run_id}}"
     #         - name: Use Node.js
