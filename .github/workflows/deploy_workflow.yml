@@ -37,4 +37,4 @@ jobs:
           - name: Test for working website on Staging URL
             run: |
                 echo ${{github.run_id}}
-                grep "${{github.run_id}}" build/version.html
+                curl ${{ inputs.WEB_URL }}/version.html | grep "React App"      
