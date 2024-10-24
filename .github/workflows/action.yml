@@ -57,6 +57,8 @@ jobs:
     staging:
         needs: build_website
         uses: ./.github/workflows/deploy_workflow.yml 
+        with:
+          WEB_URL: http://temp-terraform-s3bucket-staging.s3-website.eu-north-1.amazonaws.com
         secrets: inherit
         
 

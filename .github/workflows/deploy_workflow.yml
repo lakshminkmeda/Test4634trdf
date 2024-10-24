@@ -1,6 +1,9 @@
 name: Deployment Job
 on: 
     workflow_call:
+        inputs:
+            WEB_URL: 
+                required: true
         secrets:
             AWS_ACCESS_KEY_ID:
                 required: true
@@ -32,5 +35,6 @@ jobs:
 
           - name: Test for working website on Staging URL
             run: |
+                echo ${{ WEB_URL }}
                 echo ${{ vars.WEB_URL }}
-                curl ${{ vars.WEB_URL }} | grep "React App"      
+                curl ${{ WEB_URL }} | grep "React App"      
