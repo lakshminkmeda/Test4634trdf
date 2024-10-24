@@ -12,24 +12,26 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - name: Find the Run_ID ver 2
+            - name: Find the Run_ID
               run: |
                 echo "${{github.run_id}}"
-    #         - name: Use Node.js
-    #           uses: actions/setup-node@v4
-    #         - name: Build the Website
-    #           run: |
-    #             yarn install
-    #             yarn build
-    #             yarn lint
-    #             ls -l
-    #             echo "Checking inside build folder"
-    #             cd build/
-    #             ls -l
-    #         - uses: actions/upload-artifact@v4
-    #           with:
-    #             name: build
-    #             path: build
+            - name: Use Node.js
+              uses: actions/setup-node@v4
+            - name: Build the Website
+              run: |
+                yarn install
+                yarn build
+                yarn lint
+                ls -l
+                echo "Checking inside build folder"
+                cd build/
+                echo "${{github.run_id}}" >> version.html
+                cat version.html
+                ls -l
+            - uses: actions/upload-artifact@v4
+              with:
+                name: build
+                path: build
                 
     # tests:
     #     runs-on: ubuntu-latest
