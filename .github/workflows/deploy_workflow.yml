@@ -35,6 +35,5 @@ jobs:
 
           - name: Test for working website on Staging URL
             run: |
-                echo ${{ WEB_URL }}
-                echo ${{ vars.WEB_URL }}
-                curl ${{ WEB_URL }} | grep "React App"      
+                echo ${{ inputs.WEB_URL }}
+                curl ${{ inputs.WEB_URL }} | grep "React App"      
