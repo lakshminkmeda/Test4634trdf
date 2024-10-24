@@ -37,6 +37,5 @@ jobs:
           - name: Test for working website on Staging URL
             run: |
                 echo ${{github.run_id}}
-                echo ${{ inputs.WEB_URL }}
-                echo ${{ inputs.WEB_URL }}/index.html
+                echo ${{ inputs.WEB_URL }}/version.html
                 curl ${{ inputs.WEB_URL }}/version.html | grep "${{github.run_id}}"      
