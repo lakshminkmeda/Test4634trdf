@@ -5,6 +5,9 @@ on:
             WEB_URL: 
                 required: true
                 type: string
+            S3_URL:
+                required: true
+                type: string
         secrets:
             AWS_ACCESS_KEY_ID:
                 required: true
@@ -29,12 +32,12 @@ jobs:
                 echo "You're in AWS Cli mode"
                 aws --version
                 ls -l
-                aws s3 sync build s3://temp-terraform-s3bucket-staging/ --delete
+                aws s3 sync build ${{ inputs.S3_URL }} --delete
             env: 
                 AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
                 AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-          - name: Test for working website on Staging URL
+          - name: Test for working website
             run: |
                 echo ${{github.run_id}}
                 echo ${{ inputs.WEB_URL }}/version.html
