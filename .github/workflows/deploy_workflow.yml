@@ -1,7 +1,6 @@
 name: Deployment Job
 on: 
     workflow_call:
-        inputs:
         secrets:
             AWS_ACCESS_KEY_ID:
                 required: true
