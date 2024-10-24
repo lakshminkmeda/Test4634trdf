@@ -56,9 +56,8 @@ jobs:
 
     staging:
 #        needs: test_website
-        uses: ./.github/workflows/deploy_workflow.yml
-        with: 
-          secrets: inherit
+        uses: ./.github/workflows/deploy_workflow.yml 
+        secrets: inherit
         
 
     # production:
